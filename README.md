@@ -84,6 +84,9 @@ Kubernetes permite la orquestación de contenedores, facilitando la escalabilida
 
 ```bash
 git clone https://github.com/JuanPabloQB1990/docker-kubernets-admin-products
+```
+
+```bash
 cd docker-kubernets-admin-products
 ```
 ### 2. Ejecutar con Docker (debes tener docker instalado en tu maquina)
