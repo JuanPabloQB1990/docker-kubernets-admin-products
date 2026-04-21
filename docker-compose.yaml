@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: productsadmin
+      MYSQL_USER: juanpablo
+      MYSQL_PASSWORD: Devops_1990
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot123"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  backend:
+    image: juanpablo1990/products-backend:v3 
+    container_name: backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: mysql://juanpablo:Devops_1990@mysql-container:3306/productsadmin
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  frontend:
+    image: juanpablo1990/products-frontend-docker:v1 
+    container_name: frontend
+    restart: always
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  mysql_data:
+
+networks:
+  app-network:
+    driver: bridge
