@@ -1,11 +1,16 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
+<<<<<<< HEAD
   name: app-config-backend
+=======
+  name: app-config
+>>>>>>> e653df5aa12fe9b6c216dd40029b0129f64de506
 data:
   DATABASE_URL: mysql://root:Juanpablo1990@mysql-service:3306/productsadmin
   DATABASE_URL_TEST: mysql://root:Juanpablo1990@mysql-service:3306/productsadmintest
   PORT: "5000"
+<<<<<<< HEAD
   FRONTEND_URL: http://frontend-service:5173
 
 ---
@@ -15,3 +20,6 @@ metadata:
   name: app-config-frontend
 data:
   VITE_API_URL: http://backend-service:5000
+=======
+  FRONTEND_URL: http://frontend-service:5173
+>>>>>>> e653df5aa12fe9b6c216dd40029b0129f64de506
