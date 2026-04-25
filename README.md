@@ -103,6 +103,25 @@ http://localhost:5173/
 
 ### 3. Ejecutar con Kubernetes en orden (debes tener kubernetes instalado en tu maquina y luego ejecuta estos comandos para crear los deployment de cada servicio)
 
+INstalar MInikube
+
+```bash
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+```
+
+Iniciar kubernetes: 
+
+```bash
+minikube start --driver=docker
+```
+
+Utilizar Docker de Minikube si tienes instalado docker previamente.
+
+```bash
+eval $(minikube docker-env)
+```
+
 ```bash
 kubectl apply -f secret.yaml
 ```
@@ -117,9 +136,6 @@ kubectl apply -f deploy-db.yaml
 ```
 
 ```bash
-kubectl apply -f persistence-db.yaml
-```
-```bash
 kubectl apply -f deploy-backend.yaml
 ```
 ```bash
@@ -128,9 +144,9 @@ kubectl apply -f deploy-frontend.yaml
 
 ### 4. Para visualizar la pagina funcionando debes ingresar la siguiente URL: http://ip_cluster_kubernetes:puerto_servicio_frontend
 
-```bash
-http://192.168.49.2:30007/
-```
+
+http://192.168.49.2:30007
+
 
 
 
