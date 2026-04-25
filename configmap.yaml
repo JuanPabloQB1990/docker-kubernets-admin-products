@@ -14,4 +14,4 @@ kind: ConfigMap
 metadata:
   name: app-config-frontend
 data:
-  VITE_API_URL: http://backend-service:5000
+  VITE_API_URL: http://192.168.49.2:30008
