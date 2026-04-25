@@ -14,9 +14,12 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: juanpablo1990/products-frontend:v9
+          image: juanpablo1990/products-frontend:v10
           ports:
             - containerPort: 5173
+          envFrom:
+            - configMapRef:
+                name: app-config-frontend
 ---
 apiVersion: v1
 kind: Service

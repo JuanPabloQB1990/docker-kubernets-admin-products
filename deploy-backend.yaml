@@ -19,7 +19,7 @@ spec:
             - containerPort: 5000
           envFrom:
             - configMapRef:
-                name: app-config
+                name: app-config-backend
 ---
 apiVersion: v1
 kind: Service

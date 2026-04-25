@@ -39,11 +39,13 @@ services:
       - app-network
 
   frontend:
-    image: juanpablo1990/products-frontend-docker:v1 
+    image: juanpablo1990/products-frontend:v10 
     container_name: frontend
     restart: always
+    environment:
+      VITE_API_URL: http://localhost:5000
     ports:
-      - "5173:5173"
+      - "5173:80"
     depends_on:
       - backend
     networks:
